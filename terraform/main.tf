@@ -39,7 +39,7 @@ module "soe02" {
 
   source               = "git@gitlab.com:orica/terraform-modules/aws-orica-ec2.git"
   host_name            = "soe02.test.shd"
-  instance_type        = "t3a.medium"
+  instance_type        = "t3a.small"
   is_soe               = "true"
   os                   = "windows-2016"
   subnet_name          = "PRD-APP-AZ1-SN"
