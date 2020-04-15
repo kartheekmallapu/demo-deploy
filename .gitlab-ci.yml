@@ -4,6 +4,7 @@ default:
 stages:
   - 01_tf_plan
   - 01_tf_apply
+  - 02_ansible_play
 
 include: 
   - project: 'orica/registry/ci-templates'
@@ -48,3 +49,20 @@ tf_apply:
       - master
     changes:
       - terraform/*.tf
+
+ansible_play:
+  tags:
+    - aws-apac-docker
+  stage: 01_tf_apply
+  extends:
+    - .get-assume-role
+  script:
+    - cd ansible
+    - ansible-galaxy install --force -r requirements.yml
+    - ansible-playbook -i inventory/ main.yml --extra-vars "ansible_password=$TF_VAR_admin_password"
+  when: manual
+  only:
+    refs:
+      - master
+    changes:
+      - ansible/inventory/*
