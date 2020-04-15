@@ -5,6 +5,7 @@ stages:
   - 01_tf_plan
   - 01_tf_apply
   - 02_ansible_play
+  - 99_tf_destroy
 
 include: 
   - project: 'orica/registry/ci-templates'
@@ -49,6 +50,22 @@ tf_apply:
       - master
     changes:
       - terraform/*.tf
+
+tf_destroy:
+  tags:
+    - aws-apac-docker
+  stage: 99_tf_destroy
+  extends: 
+    - .get-assume-role
+  script:
+    - cd terraform
+    - terraform init
+    - terraform destroy -input=false -auto-approve -no-color
+  rules:
+    - if: '$run == "destroy"'
+      when: manual
+    - when: never
+
 
 ansible_play:
   tags:
