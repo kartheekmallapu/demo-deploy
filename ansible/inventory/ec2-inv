@@ -1,0 +1,10 @@
+[soe02]
+10.184.243.191
+
+[win_soe:children]
+soe02
+
+[win_soe:vars]
+ansible_user=osadmin
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

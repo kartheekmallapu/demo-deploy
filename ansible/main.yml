@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Obtain assume role STS
+    sts_assume_role:
+      role_arn: "arn:aws:iam::464902759691:role/orica-vault-poweruser-role"
+      role_session_name: "ec2_soe_ansible"
+      region: ap-southeast-2
+    register: assume_role_register
+
+- hosts: win_soe
+  gather_facts: true
+  vars:
+    is_domain_join: false
+    assume_role_register: "{{ hostvars['localhost'].assume_role_register }}"
+  roles:
+    - orica-soe

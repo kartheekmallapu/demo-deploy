@@ -1,0 +1,3 @@
+- src: git@gitlab.com:orica/registry/ansible-roles/orica-soe.git
+  scm: git
+  
