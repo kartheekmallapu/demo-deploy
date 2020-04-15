@@ -5,6 +5,6 @@
 soe02
 
 [win_soe:vars]
-ansible_user=osadmin
+ansible_user=Administrator
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore

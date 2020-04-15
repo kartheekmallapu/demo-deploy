@@ -59,7 +59,7 @@ ansible_play:
   script:
     - cd ansible
     - ansible-galaxy install --force -r requirements.yml
-    - ansible-playbook -i inventory/ main.yml --extra-vars "ansible_password=$TF_VAR_admin_password"
+    - ansible-playbook -i inventory/ main.yml --extra-vars "ansible_password=$admin_password"
   when: manual
   only:
     refs:
