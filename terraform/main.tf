@@ -38,8 +38,8 @@ module "soe02" {
   admin_password = var.admin_password
 
   source               = "git@gitlab.com:orica/terraform-modules/aws-orica-ec2.git"
-  host_name            = "soe02.test.shd"
-  instance_type        = "t3a.small"
+  host_name            = "support.test.shd"
+  instance_type        = "t3a.medium"
   is_soe               = "true"
   os                   = "windows-2016"
   subnet_name          = "PRD-APP-AZ1-SN"
