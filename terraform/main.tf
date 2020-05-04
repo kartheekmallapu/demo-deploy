@@ -38,7 +38,7 @@ variable "admin_password" {
   default = ""
 }
 
-
+/*
 module "soe02" {
   providers = {
     aws = aws.apac_shd
@@ -62,7 +62,7 @@ module "soe02" {
     "tag3" = "eg3"
   }
 }
-
+*/
 
 module "soe01" {
   providers = {
