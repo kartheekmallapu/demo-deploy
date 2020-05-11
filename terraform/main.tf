@@ -64,6 +64,7 @@ module "soe02" {
 }
 */
 
+/*
 module "soe01" {
   providers = {
     aws = aws.apac_prd
@@ -87,3 +88,4 @@ module "soe01" {
     "tag3" = "eg3"
   }
 }
+*/
